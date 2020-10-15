@@ -9,6 +9,7 @@ from torch._jit_internal import (
     _overload,
     _overload_method,
     ignore,
+    _isinstance,
     is_scripting,
     export,
     unused,
@@ -68,6 +69,10 @@ Error.__qualname__ = "Error"
 def annotate(the_type, the_value):
     # noop in python
     return the_value
+
+
+# for torch.jit.isinstance 
+isinstance = _isinstance
 
 
 if not torch._C._jit_init():
